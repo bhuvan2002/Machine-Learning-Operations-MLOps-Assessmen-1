@@ -1,0 +1,9 @@
+__pycache__
+.venv
+.git
+mlruns
+.pytest_cache
+.ruff_cache
+data
+reports
+tests
