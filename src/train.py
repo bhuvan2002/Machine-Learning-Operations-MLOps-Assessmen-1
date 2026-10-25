@@ -127,9 +127,9 @@ def main():
             results.append((name, metrics, pipeline))
 
     # Choose model by mean cross-validation ROC-AUC, not by test-set performance.
-    best_name, best_metrics, best_pipeline = max(
-        results, key=lambda item: item[1]["cv_roc_auc_mean"]
-    )
+    best_name, _, best_pipeline = max(
+    results, key=lambda item: item[1]["cv_roc_auc_mean"]
+)
     joblib.dump(best_pipeline, ARTIFACTS / "model.joblib")
     summary = {
         "selected_model": best_name,
