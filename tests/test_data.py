@@ -1,10 +1,11 @@
 import pandas as pd
-from src.train import build_pipeline
 from sklearn.linear_model import LogisticRegression
+
+from src.train import build_pipeline
 
 
 def test_pipeline_fits_with_missing_values():
-    from src.train import NUMERIC, CATEGORICAL
+    from src.train import CATEGORICAL, NUMERIC
     columns = NUMERIC + CATEGORICAL
     row = {
         "age": 55, "trestbps": 130, "chol": 250, "thalach": 150, "oldpeak": 1.0,

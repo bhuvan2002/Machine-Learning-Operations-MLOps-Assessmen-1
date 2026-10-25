@@ -1,26 +1,35 @@
-from pathlib import Path
 import json
+from pathlib import Path
 
 import joblib
+import matplotlib
 import mlflow
 import mlflow.sklearn
-import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
-    accuracy_score, precision_score, recall_score, roc_auc_score,
-    classification_report, ConfusionMatrixDisplay, RocCurveDisplay,
+    ConfusionMatrixDisplay,
+    RocCurveDisplay,
+    accuracy_score,
+    classification_report,
+    precision_score,
+    recall_score,
+    roc_auc_score,
 )
-from sklearn.model_selection import StratifiedKFold, cross_validate, train_test_split, GridSearchCV
+from sklearn.model_selection import (
+    StratifiedKFold,
+    cross_validate,
+    train_test_split,
+)
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
-import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from src.data import load_data, create_eda
+from src.data import create_eda, load_data
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts"
